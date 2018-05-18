@@ -1,7 +1,5 @@
 var thrift = require('thrift');
 var zkDataService = require('./gen-nodejs/zkDataService');
-var ttypes = require('./gen-nodejs/tutorial_types');
-const assert = require('assert');
 
 var transport = thrift.TBufferedTransport;
 var protocol = thrift.TBinaryProtocol;
@@ -12,10 +10,10 @@ var connection = thrift.createConnection("localhost", 9090, {
 });
 
 connection.on('error', function(err) {
-  assert(false, err);
+    console.log("error:"+err);
+ // assert(false, err);
 });
 
-// Create a zkDataService client with the connection
 var client = thrift.createClient(zkDataService, connection);
 
 client.zkData(function(err, message) {
