@@ -1,16 +1,15 @@
-* file: tutorial.thrift
+
+
+### file: tutorial.thrift
 
 ```
-namespace js tutorial
-
-service Calculator {
-  void ping(),
-  i32 add(1:i32 num1, 2:i32 num2),
-  oneway void zip()
-}
-
+https://github.com/apache/thrift/blob/master/tutorial/shared.thrift
+https://github.com/apache/thrift/blob/master/tutorial/tutorial.thrift
+##### change the namespace to 
 ```
-* command
+mespace js tutorial
+```
+###  command
 ```
 thrift -r --gen js:node tutorial.thrift
 

@@ -7,8 +7,8 @@ process.on('message', function(msg) {
 var i=0;
 
 var zookeeper = require('node-zookeeper-client');
-var client = zookeeper.createClient('172.17.0.8:2181');
-var path = '/zk_test';//节点名称
+var client = zookeeper.createClient('zookeeper:2181');
+var path = '/RedisServer';
  
 
 
@@ -24,7 +24,7 @@ function getData(client, path) {
                 console.log('Error occurred when getting data: %s.', error);
                 return;
             }
-            process.send('zookeeper节点数据'+data.toString('utf8'));//通知主进程zk节点数据
+            process.send(data.toString('utf8'));
         }
     );
 }
